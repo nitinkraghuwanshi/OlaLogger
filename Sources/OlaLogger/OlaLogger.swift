@@ -13,7 +13,9 @@ public enum LoggerError: Error {
 
 public struct OlaLogger {
  
-    func submitForm(form: LoggerForm, completion: @escaping (Result<Bool, LoggerError>) -> Void) {
+    public init() {}
+    
+    public func submitForm(form: LoggerForm, completion: @escaping (Result<Bool, LoggerError>) -> Void) {
         do {
             let request = try prepareQueryRequest(form: form)
             submitForm(request: request, completion: completion)
@@ -21,7 +23,7 @@ public struct OlaLogger {
             completion(.failure(.internalError(description: "failed in creating request")))
         }
     }
-    func submitForm(formID: String, dictionary: [String: String], completion: @escaping (Result<Bool, LoggerError>) -> Void)  {
+    public func submitForm(formID: String, dictionary: [String: String], completion: @escaping (Result<Bool, LoggerError>) -> Void)  {
         do {
             let request = try prepareQueryRequest(formID: formID, dictionary: dictionary)
             submitForm(request: request, completion: completion)
@@ -29,7 +31,7 @@ public struct OlaLogger {
             completion(.failure(.internalError(description: "failed in creating request")))
         }
     }
-    func submitForm(formID: String, postDataStr: String, completion: @escaping (Result<Bool, LoggerError>) -> Void)  {
+    public func submitForm(formID: String, postDataStr: String, completion: @escaping (Result<Bool, LoggerError>) -> Void)  {
         do {
             let request = try prepareQueryRequest(formID: formID, postDataStr: postDataStr)
             submitForm(request: request, completion: completion)
