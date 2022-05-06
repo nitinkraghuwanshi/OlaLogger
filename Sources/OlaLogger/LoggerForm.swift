@@ -17,7 +17,8 @@ extension LoggerFormType {
     }
 }
 public struct LoggerForm: LoggerFormType {
-    var id: String
-    var fields: [String : String]
+   public var id: String
+   public var fields: [String : String]
+    
 }
 
