@@ -16,7 +16,7 @@ extension LoggerFormType {
         return fields.responseSubmissionString
     }
 }
-struct LoggerForm: LoggerFormType {
+public struct LoggerForm: LoggerFormType {
     var id: String
     var fields: [String : String]
 }
